@@ -1,13 +1,13 @@
 {
   "spec": "soksak-plugin-spec@1",
-  "id": "soksak-plugin-formatter",
+  "id": "soksak-plugin-editor-format-json",
   "name": { "en": "JSON Formatter", "ko": "JSON 포메터" },
-  "version": "1.0.0",
-  "repo": "https://github.com/soksak-ai/soksak-plugin-formatter.git",
-  "description": { "en": "Formats JSON files with 2-space indentation. Registers a formatter with the editor plugin. On parse failure, emits a clear error instead of corrupted text.", "ko": "JSON 파일을 2칸 들여쓰기로 정리하는 포매터. 에디터 플러그인에 포매터를 등록합니다. 파싱 실패 시 깨진 텍스트 대신 명확한 에러를 냅니다." },
+  "version": "0.1.0",
+  "repo": "https://github.com/soksak-ai/soksak-plugin-editor-format-json.git",
+  "description": { "en": "Formats JSON files with 2-space indentation. An editor extension (registers a formatter with the editor plugin). On parse failure, emits a clear error instead of corrupted text.", "ko": "JSON 파일을 2칸 들여쓰기로 정리하는 포매터. 에디터 확장(에디터 플러그인에 포매터 등록). 파싱 실패 시 깨진 텍스트 대신 명확한 에러를 냅니다." },
   "entry": "main.js",
   "dependencies": {
-    "soksak-plugin-editor": "*"
+    "soksak-plugin-editor-codemirror": "*"
   },
   "permissions": []
 }

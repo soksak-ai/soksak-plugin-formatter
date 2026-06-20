@@ -32,22 +32,22 @@ export default {
     const register = () => {
       app.bus.emit("editor.ext.register", {
         kind: "formatter",
-        id: "soksak-plugin-formatter.json",
+        id: "soksak-plugin-editor-format-json.json",
         extensions: ["json"],
         format: (text) => formatJson(text),
       });
     };
 
-    // 에디터가 이미 떠 있으면 이 등록이 즉시 반영되고, 아직이면 ready 공지에 재등록한다.
-    register();
+    // ready 에 (재)등록 + hello 로 핸드셰이크(에디터가 먼저 떴으면 ready 를 못 받으므로 hello→ready 유도).
     ctx.subscriptions.push(app.bus.on("editor.ext.ready", () => register()));
+    app.bus.emit("editor.ext.hello", {});
 
     // 비활성 시 해제 — 에디터 레지스트리에서 제거.
     ctx.subscriptions.push({
       dispose: () =>
         app.bus.emit("editor.ext.unregister", {
           kind: "formatter",
-          id: "soksak-plugin-formatter.json",
+          id: "soksak-plugin-editor-format-json.json",
         }),
     });
   },
